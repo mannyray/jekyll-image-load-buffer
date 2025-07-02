@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Centered Image Column</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* horizontally center the column */
+        }
+
+        .column {
+            width: 50%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .image-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .loading {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .image {
+            display: none;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="column">
+    <div class="image-container">
+        <div class="loading">Loading image 1...</div>
+        <img class="image" src="http://127.0.0.1:3000/images/smile.png" alt="Image 1">
+    </div>
+
+    <div class="image-container">
+        <div class="loading">Loading image 2...</div>
+        <img class="image" src="http://127.0.0.1:3000/images/smile.png" alt="Image 2">
+    </div>
+
+    <div class="image-container">
+        <div class="loading">Loading image 3...</div>
+        <img class="image" src="http://127.0.0.1:3000/images/smile.png" alt="Image 3">
+    </div>
+</div>
+
+<script>
+    const containers = document.querySelectorAll('.image-container');
+
+    containers.forEach(container => {
+        const img = container.querySelector('.image');
+        const loading = container.querySelector('.loading');
+
+        img.onload = function () {
+            loading.style.display = 'none';
+            img.style.display = 'block';
+        };
+
+        img.onerror = function () {
+            loading.textContent = 'Failed to load image.';
+        };
+    });
+</script>
+
+</body>
+</html>
