@@ -1,0 +1,34 @@
+---
+---
+
+.figcaption-default {
+    text-align: center;
+    font-style: italic;
+    color: grey;
+    
+    a {
+        text-decoration: underline;
+    }
+
+    /* unvisited link */
+    a:link {
+        color: black;
+    }
+
+    /* visited link */
+    a:visited {
+        color: black;
+    }
+
+    /* mouse over link */
+    a:hover {
+        color: black;
+    }
+
+    /* selected link */
+    a:active {
+        color: black;
+    }
+}
+
+
