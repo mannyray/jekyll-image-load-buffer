@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Centered Image Column</title>
+    <meta charset="UTF-8" />
+    <title>Responsive Image Placeholders</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
             display: flex;
-            justify-content: center; /* horizontally center the column */
+            justify-content: center;
         }
 
         .column {
@@ -18,55 +17,109 @@
         }
 
         .image-container {
+            width: 100%;
             margin-bottom: 20px;
-            text-align: center;
+            position: relative;
         }
 
-        .loading {
-            font-size: 1.2em;
-            font-weight: bold;
+        /* Wrapper preserves aspect ratio */
+        .placeholder-wrapper {
+            position: relative;
+            width: 100%;
+            /* padding-bottom set dynamically by JS */
+            overflow: hidden;
+        }
+
+        .placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
         }
 
         .image {
             display: none;
-            max-width: 100%;
+            width: 100%;
             height: auto;
+            position: relative; /* no absolute */
         }
+
     </style>
 </head>
 <body>
 
 <div class="column">
+
     <div class="image-container">
-        <div class="loading">Loading image 1...</div>
-        <img class="image" src="http://127.0.0.1:3000/images/smile.png" alt="Image 1">
+        <div class="placeholder-wrapper" data-aspect-ratio="2048 / 2048"> <!-- 1 -->
+            <div class="placeholder"></div>
+            <img class="image"
+                 src="http://127.0.0.1:3000/images/smile.png"
+                 alt="Image 1" />
+        </div>
     </div>
 
     <div class="image-container">
-        <div class="loading">Loading image 2...</div>
-        <img class="image" src="http://127.0.0.1:3000/images/smile.png" alt="Image 2">
+        <div class="placeholder-wrapper" data-aspect-ratio="1645 / 1077"> <!-- approx 1.527 -->
+            <div class="placeholder"></div>
+            <img class="image"
+                 src="http://127.0.0.1:3000/images/smile_portrait.png"
+                 alt="Image 2" />
+        </div>
     </div>
 
     <div class="image-container">
-        <div class="loading">Loading image 3...</div>
-        <img class="image" src="http://127.0.0.1:3000/images/smile.png" alt="Image 3">
+        <div class="placeholder-wrapper" data-aspect-ratio="1032 / 1795"> <!-- approx 0.575 -->
+            <div class="placeholder"></div>
+            <img class="image"
+                 src="http://127.0.0.1:3000/images/smile_landscape.png"
+                 alt="Image 3" />
+        </div>
     </div>
+
 </div>
 
 <script>
-    const containers = document.querySelectorAll('.image-container');
+    const wrappers = document.querySelectorAll('.placeholder-wrapper');
 
-    containers.forEach(container => {
-        const img = container.querySelector('.image');
-        const loading = container.querySelector('.loading');
+    wrappers.forEach(wrapper => {
+        // Parse aspect ratio expression in data-aspect-ratio attribute
+        const ratioExpr = wrapper.dataset.aspectRatio;
+        let aspectRatio = NaN;
+
+        try {
+            // Evaluate the aspect ratio (e.g. "1645 / 1077")
+            aspectRatio = Function('"use strict";return (' + ratioExpr + ')')();
+        } catch {
+            aspectRatio = NaN;
+        }
+
+        if (!isNaN(aspectRatio)) {
+            wrapper.style.paddingBottom = `${aspectRatio * 100}%`;
+        } else {
+            // fallback to 1:1 if invalid
+            wrapper.style.paddingBottom = `100%`;
+        }
+
+        const img = wrapper.querySelector('.image');
+        const placeholder = wrapper.querySelector('.placeholder');
 
         img.onload = function () {
-            loading.style.display = 'none';
+            placeholder.style.display = 'none';
             img.style.display = 'block';
+            wrapper.style.paddingBottom = '0';  // Remove padding-bottom, avoid whitespace
         };
 
+
         img.onerror = function () {
-            loading.textContent = 'Failed to load image.';
+            placeholder.textContent = 'Failed to load image';
+            placeholder.style.color = 'red';
+            placeholder.style.textAlign = 'center';
+            placeholder.style.display = 'flex';
+            placeholder.style.alignItems = 'center';
+            placeholder.style.justifyContent = 'center';
         };
     });
 </script>
