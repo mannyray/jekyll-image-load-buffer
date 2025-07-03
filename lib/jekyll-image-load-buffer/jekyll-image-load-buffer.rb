@@ -1,5 +1,5 @@
 require 'nokogiri'
-require 'base64'
+require_relative 'helper'
 
 module Jekyll
     module BUFFER
@@ -9,10 +9,16 @@ module Jekyll
                 # `image_buffering:` property in a post is not defined
                 buffering_enabled = false
             end
-            doc = Nokogiri::HTML(text)
+            
+            plugin_dir = File.join(Jekyll.configuration({})['plugins_dir'],"jekyll-image-load-buffer")
+            styling_html_content_text = File.read( File.join(plugin_dir,"style.html" ))
+            script_html_content_text = File.read( File.join(plugin_dir,"script.html" ))
+            
             if buffering_enabled
-                return "to be buffered"
+                text = styling_html_content_text + text + script_html_content_text
+                return wrap_each_img_tag(text)                
             end
+            doc = Nokogiri::HTML(text)
             return doc.to_html
         end
     end

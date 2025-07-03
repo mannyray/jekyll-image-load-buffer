@@ -1,6 +1,10 @@
 # jekyll-image-load-buffer
 
+ - proper terminology of filter
  - actual stats for loading in page - not that much but people expect quality - amazon quote
+ - mention https://www.bfoliver.com/2020/jekyll-image-loading - csp
+ - how this was tested and developed via chat gpt
+ - what the filter does html wise basically... maybe a gif too
 
 
 ## How to use
@@ -9,9 +13,9 @@
 
 Copy the plugin folder `jekyll-image-load-buffer` from this repository `lib` directory into your site's `_plugin` folder.
 
-### 2. Modify `_layouts/post.html` to have the ` | buffer` feature.
+### 2. Modify `_layouts/post.html` to have the ` | buffer` filter.
 
-The buffer feature uses a custom post property so `{{ content }}` will be replaced with  `{{ content | buffer: page.image_buffering  }}`.
+The buffer filter uses a custom post property so `{{ content }}` will be replaced with  `{{ content | buffer: page.image_buffering  }}`. You can modify any layout you have (does not have to be `post.html`) - read more about Jekyll layouts [here](https://jekyllrb.com/docs/step-by-step/04-layouts/).
 
 <table>
 <tr>
@@ -76,4 +80,4 @@ To reverse the default behavaiour to always buffer load images when `image_buffe
 to set `buffering_enabled = true`. 
 
 
-### 4. Optional styling
+### 4. Optional styling - HTML to play around with

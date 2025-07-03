@@ -1,0 +1,51 @@
+<style>
+    image-container {
+        width: 100%;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    /* Wrapper preserves aspect ratio */
+    .placeholder-wrapper {
+        position: relative;
+        width: 100%;
+        /* padding-bottom set dynamically by JS */
+        overflow: hidden;
+
+    }
+
+    .placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #eee; /* light grey */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Spinner styles */
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #ccc;
+      border-top-color: #666;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .buffer-image {
+        display: none;
+        width: 100%;
+        height: auto;
+        position: relative; /* no absolute */
+    }
+</style>
