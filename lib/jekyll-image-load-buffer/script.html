@@ -11,9 +11,17 @@
         } catch {
             aspectRatio = NaN;
         }
+        
+        let widthPercentage = 100;
+        if (wrapper && wrapper.dataset && wrapper.dataset.customWidthPercentage !== undefined) {
+            widthPercentage = wrapper.dataset.customWidthPercentage;
+        }
+        console.log(widthPercentage);
+        console.log("GGGG")
+        
 
         if (!isNaN(aspectRatio)) {
-            wrapper.style.paddingBottom = `${aspectRatio * 100}%`;
+            wrapper.style.paddingBottom = `${aspectRatio * widthPercentage}%`;
         } else {
             // fallback to 1:1 if invalid
             wrapper.style.paddingBottom = `100%`;

@@ -11,12 +11,13 @@ You’ll find this post in your `_posts` directory. Go ahead and edit it and re-
 
 ![](http://127.0.0.1:3000/images/smile_landscape.png)
 
-<center >
-<div width="60%">
+<center>
 <img src="http://127.0.0.1:3000/images/smile_portrait.png" width="60%">
-</div>
 </center>
-
+<p></p>
+<center>
+<img src="http://127.0.0.1:3000/images/smile_landscape.png" width="30%">
+</center>
 
 Jekyll requires blog post files to be named according to the following format:
 
