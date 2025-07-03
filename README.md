@@ -5,7 +5,7 @@
  - mention https://www.bfoliver.com/2020/jekyll-image-loading - csp
  - how this was tested and developed via chat gpt
  - what the filter does html wise basically... maybe a gif too
-
+- site that does not use it https://fortune.com/2025/07/02/amazon-culture-employee-performance-reviews-leadership-principles-andy-jassy/
 
 ## How to use
 
@@ -15,7 +15,7 @@ Copy the plugin folder `jekyll-image-load-buffer` from this repository `lib` dir
 
 ### 2. Modify `_layouts/post.html` to have the ` | buffer` filter.
 
-The buffer filter uses a custom post property so `{{ content }}` will be replaced with  `{{ content | buffer: page.image_buffering  }}`. You can modify any layout you have (does not have to be `post.html`) - read more about Jekyll layouts [here](https://jekyllrb.com/docs/step-by-step/04-layouts/).
+The buffer filter uses a custom page property so `{{ content }}` will be replaced with  `{{ content | buffer: page.image_buffering  }}`. You can modify any layout you have (does not have to be `post.html`) - read more about Jekyll layouts [here](https://jekyllrb.com/docs/step-by-step/04-layouts/).
 
 <table>
 <tr>
@@ -79,5 +79,25 @@ To reverse the default behavaiour to always buffer load images when `image_buffe
 ```
 to set `buffering_enabled = true`. 
 
+### 4. Add the images to your markdown files
 
-### 4. Optional styling - HTML to play around with
+For example:
+
+```markdown
+![](http://<SOME RANDOM (but not my) WEBSITE>.com/images/best_image.png)
+
+![](/images/my_site_image.png)
+```
+
+> [!CAUTION]
+> For the second link ( i.e. `![](/images/my_site_image.png)`) the path used is called a "root-relative URL". You _must_ use root-relative paths for images that are local-to-your-website. For images outside of your website feel free to use "absolute URL" (e.g `http://<SOME RANDOM (but not my) WEBSITE>.com/images/best_image.png`) so long as the plugin has access to the internet when building the site.
+>  
+> Other  "root-relative URL" markdown alternatives for local-to-your-website images are "relative URL" (e.g `![](my_site_image.png)`) and "absolute URL" (e.g. `![]({{ site.url }}/images/my_site_image.png)`). Do not use these two alternatives as this repository's plugin needs to be able to compute the dimensions of your image first which is easiest with a root relative path.
+>
+> This path restriction is one of the reasons that in step 3 above we have `image_buffering` default to false.
+
+### 5. Build your website via `jekyll serve` or `jekyll build` to see the results.
+
+### 6. Optional styling - HTML to play around with
+
+### 7. Custom <img> tags within post
