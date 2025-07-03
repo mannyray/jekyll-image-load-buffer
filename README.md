@@ -1,11 +1,25 @@
 # jekyll-image-load-buffer
 
- - proper terminology of filter
+This repository hosts code for a [filter plugin](https://jekyllrb.com/docs/liquid/filters/) for Jekyll based websites. Once Jekyll generates the html for the site via the `jekyll build/serve` command, then this plugin filters the html for `<img>` tags and wraps them in a series of `<div>`s with added `javascript` and `css` styling. The result is that each image on the page has a placeholder with a loading spinner with the same dimensions and location as the image. Once the image is fully loaded the placeholder is replaced by the image.
+
+<center>
+<img src="assets/simulation.gif" height="50%">
+</center>
+
+By having a loading placeholder for slow to load images we can now resolve the [Cumulative Layout Shift](https://www.bfoliver.com/2020/jekyll-image-loading) problem which removes the annoying experience of loading a web page and scrolling down... only to have your web view port bumped due to some images above loading and displacing what you are reading. Removing the annoying experience would make your site more appealing.
+
+The effect appealing - web viewers are impatient
+#
+
  - actual stats for loading in page - not that much but people expect quality - amazon quote
- - mention https://www.bfoliver.com/2020/jekyll-image-loading - csp
  - how this was tested and developed via chat gpt
- - what the filter does html wise basically... maybe a gif too
-- site that does not use it https://fortune.com/2025/07/02/amazon-culture-employee-performance-reviews-leadership-principles-andy-jassy/
+- do people scroll down to see images
+
+I am grateful for Ben Oliver's article [https://www.bfoliver.com/2020/jekyll-image-loading](https://www.bfoliver.com/2020/jekyll-image-loading) on this issue as it gave me a starting ground to develop the filter.
+
+
+For development I heavily relied on chatgpt. I
+I am grateful for Ben Oliver's website 
 
 ## How to use
 
@@ -87,6 +101,10 @@ For example:
 ![](http://<SOME RANDOM (but not my) WEBSITE>.com/images/best_image.png)
 
 ![](/images/my_site_image.png)
+
+<center>
+<img src="/images/my_site_image_2.png" width="60%">
+</center>
 ```
 
 > [!CAUTION]
@@ -96,8 +114,7 @@ For example:
 >
 > This path restriction is one of the reasons that in step 3 above we have `image_buffering` default to false.
 
+> [!NOTE]
+> The third image link ( i.e `<img src="/images/my_site_image_2.png" width="60%">` ) shows that this plugin allows for linking images outside of the usual markdown style of `![](...)`. I find this personally useful as sometimes my site's Jekyll minima theme will show images that are too big (especially portrait formatted ones) and so restricting via `width="<SOME PERCENTAGE>%"` is handy.
+
 ### 5. Build your website via `jekyll serve` or `jekyll build` to see the results.
-
-### 6. Optional styling - HTML to play around with
-
-### 7. Custom <img> tags within post
