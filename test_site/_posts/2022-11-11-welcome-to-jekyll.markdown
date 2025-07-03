@@ -3,9 +3,26 @@ layout: post
 title:  "Welcome to Jekyll!"
 date:   2022-11-11 16:27:06 -0600
 categories: jekyll update
-image_buffering: true
+image_buffering: false
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+
+Hey hey hey! Let's test this new Jekyll plugin. There is supposed to be an image between this paragraph and the next one. Ideally we don't our page jumping around too much once it loads even if images are slow to load.
+
+<center>
+<img src="http://127.0.0.1:3000/images/smile_landscape.png" width="50%">
+</center>
+
+Now the image is supposed be to above this sentence. Will the slow to load image affect our experience?
+
+<center>
+<img src="http://127.0.0.1:3000/images/smile.png" width="50%">
+</center>
+
+More text
+
+<center>
+<img src="http://127.0.0.1:3000/images/smile_portrait.png" width="50%">
+</center>
 
 ![](http://127.0.0.1:3000/images/smile.png)
 
@@ -15,7 +32,6 @@ You’ll find this post in your `_posts` directory. Go ahead and edit it and re-
 <img src="http://127.0.0.1:3000/images/smile_portrait.png" width="60%">
 </center>
 <p></p>
-<img src="http://127.0.0.1:3000/images/smile_landscape.png" width="30%">
 
 Jekyll requires blog post files to be named according to the following format:
 

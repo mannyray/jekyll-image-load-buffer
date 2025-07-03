@@ -8,7 +8,7 @@ app = Flask(__name__)
 IMAGE_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'images')
 
 # Delay time in seconds (you can change this value)
-RESPONSE_DELAY_SECONDS = 2  # 2-second delay
+RESPONSE_DELAY_SECONDS = 0.7
 
 @app.route('/images/<path:filename>')
 def serve_image(filename):
