@@ -55,6 +55,9 @@ It seems that as an image varies from `0.02mb` to `1.4mb` then its load time var
 
 From checking the internet and various search-engine-optimization type sites it seems that `0.2mb`-`0.5mb` is an ideal size for a website image. Thus I decided to test my buffer feature with `0.7s` for my ideal future website where all my pictures are optimized to that range to reduce size while maintaining visual quality. Maybe `0.7s` is so fast that we don't need a buffer..let's test visually!
 
+> [!NOTE]
+> To reduce the size of your images on your website to the more ideal `0.2mb`-`0.5mb` range, I have implemented a perfect solution for this as seen in https://github.com/mannyray/image-optimize.
+
 To add lag to an image loading locally, I wrote another created-and-perfected-in-minutes-by-chatgpt python scripts (see `test_backend/app.py`) that hosts a simple backend:
 
 ```python
