@@ -1,5 +1,8 @@
 # jekyll-image-load-buffer
 
+> [!NOTE]
+> To see a live demonstration of the buffer feature, please go to [http://webjourney.ca/jekyll-image-load-buffer/jekyll/update/2022/11/11/welcome-to-jekyll.html](http://webjourney.ca/jekyll-image-load-buffer/jekyll/update/2022/11/11/welcome-to-jekyll.html)
+
 _First part here has a lot of descritpion and research behind making this plugin. If you want to skip the descriptions then you can go to [How to use](#how-to-use) right away._
 
 This repository hosts code for a [filter plugin](https://jekyllrb.com/docs/liquid/filters/) for Jekyll based websites. Once Jekyll generates the html for the site via the `jekyll build/serve` command, then this plugin filters the html for `<img>` tags and wraps them in a series of `<div>`s with added `javascript`s and `css` styling. The result is that each image on the page has a placeholder with a loading spinner with the same dimensions and location as the image. Once the image is fully loaded the placeholder is replaced by the image - see directly below:
