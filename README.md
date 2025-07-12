@@ -1,7 +1,7 @@
 # jekyll-image-load-buffer
 
 > [!NOTE]
-> To see a live demonstration of the buffer feature, please go to [http://webjourney.ca/jekyll-image-load-buffer/jekyll/update/2022/11/11/welcome-to-jekyll.html](http://webjourney.ca/jekyll-image-load-buffer/jekyll/update/2022/11/11/welcome-to-jekyll.html)
+> Head to [jekyll-image-load-buffer.szonov.com](https://jekyll-image-load-buffer.szonov.com) to see a live demo of this plugin!
 
 _First part here has a lot of descritpion and research behind making this plugin. If you want to skip the descriptions then you can go to [How to use](#how-to-use) right away._
 

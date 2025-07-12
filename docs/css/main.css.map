@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "main.css",
+	"sources": [
+		"main.scss"
+	],
+	"sourcesContent": [
+		".figcaption-default {\n    text-align: center;\n    font-style: italic;\n    color: grey;\n    \n    a {\n        text-decoration: underline;\n    }\n\n    /* unvisited link */\n    a:link {\n        color: black;\n    }\n\n    /* visited link */\n    a:visited {\n        color: black;\n    }\n\n    /* mouse over link */\n    a:hover {\n        color: black;\n    }\n\n    /* selected link */\n    a:active {\n        color: black;\n    }\n}\n\n\n"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,mBAAmB,CAAC,EAChB,UAAU,EAAE,MAAM,EAClB,UAAU,EAAE,MAAM,EAClB,KAAK,EAAE,IAAI,EAMX,oBAAoB,CAKpB,kBAAkB,CAKlB,qBAAqB,CAKrB,mBAAmB,EAItB;;AA5BD,AAKI,mBALe,CAKf,CAAC,CAAC,EACE,eAAe,EAAE,SAAS,GAC7B;;AAPL,AAUI,mBAVe,CAUf,CAAC,CAAC,IAAI,CAAC,EACH,KAAK,EAAE,KAAK,GACf;;AAZL,AAeI,mBAfe,CAef,CAAC,CAAC,OAAO,CAAC,EACN,KAAK,EAAE,KAAK,GACf;;AAjBL,AAoBI,mBApBe,CAoBf,CAAC,CAAC,KAAK,CAAC,EACJ,KAAK,EAAE,KAAK,GACf;;AAtBL,AAyBI,mBAzBe,CAyBf,CAAC,CAAC,MAAM,CAAC,EACL,KAAK,EAAE,KAAK,GACf"
+}

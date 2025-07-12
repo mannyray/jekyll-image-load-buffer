@@ -1,0 +1,13 @@
+.figcaption-default { text-align: center; font-style: italic; color: grey; /* unvisited link */ /* visited link */ /* mouse over link */ /* selected link */ }
+
+.figcaption-default a { text-decoration: underline; }
+
+.figcaption-default a:link { color: black; }
+
+.figcaption-default a:visited { color: black; }
+
+.figcaption-default a:hover { color: black; }
+
+.figcaption-default a:active { color: black; }
+
+/*# sourceMappingURL=main.css.map */
