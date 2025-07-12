@@ -1,7 +1,7 @@
 # jekyll-image-load-buffer
 
 > [!NOTE]
-> Head to [jekyll-image-load-buffer.szonov.com](https://jekyll-image-load-buffer.szonov.com) to see a live demo of this plugin!
+> Head to [jekyll-image-load-buffer.szonov.com](https://jekyll-image-load-buffer.szonov.com/jekyll/update/2022/11/11/welcome-to-jekyll.html) to see a live demo of this plugin!
 
 _First part here has a lot of descritpion and research behind making this plugin. If you want to skip the descriptions then you can go to [How to use](#how-to-use) right away._
 
