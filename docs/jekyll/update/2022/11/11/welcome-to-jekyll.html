@@ -7,8 +7,8 @@
 <meta name="generator" content="Jekyll v4.2.2" />
 <meta property="og:title" content="Welcome to Jekyll!" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Hey hey hey! Let’s test this new Jekyll plugin. There is supposed to be an image between this paragraph and the next one. Ideally we don’t our page jumping around too much once it loads even if images are slow to load." />
-<meta property="og:description" content="Hey hey hey! Let’s test this new Jekyll plugin. There is supposed to be an image between this paragraph and the next one. Ideally we don’t our page jumping around too much once it loads even if images are slow to load." />
+<meta name="description" content="Hey hey hey! Let’s test this new Jekyll plugin. There is supposed to be an image between this paragraph and the next one. Ideally we don’t have our page jumping around too much once it loads even if images are slow to load." />
+<meta property="og:description" content="Hey hey hey! Let’s test this new Jekyll plugin. There is supposed to be an image between this paragraph and the next one. Ideally we don’t have our page jumping around too much once it loads even if images are slow to load." />
 <link rel="canonical" href="/jekyll/update/2022/11/11/welcome-to-jekyll.html" />
 <meta property="og:url" content="/jekyll/update/2022/11/11/welcome-to-jekyll.html" />
 <meta property="og:site_name" content="Your awesome title" />
@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Welcome to Jekyll!" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-11-11T15:27:06-07:00","datePublished":"2022-11-11T15:27:06-07:00","description":"Hey hey hey! Let’s test this new Jekyll plugin. There is supposed to be an image between this paragraph and the next one. Ideally we don’t our page jumping around too much once it loads even if images are slow to load.","headline":"Welcome to Jekyll!","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll/update/2022/11/11/welcome-to-jekyll.html"},"url":"/jekyll/update/2022/11/11/welcome-to-jekyll.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-11-11T15:27:06-07:00","datePublished":"2022-11-11T15:27:06-07:00","description":"Hey hey hey! Let’s test this new Jekyll plugin. There is supposed to be an image between this paragraph and the next one. Ideally we don’t have our page jumping around too much once it loads even if images are slow to load.","headline":"Welcome to Jekyll!","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll/update/2022/11/11/welcome-to-jekyll.html"},"url":"/jekyll/update/2022/11/11/welcome-to-jekyll.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Your awesome title" /></head>
 <body><header class="site-header">
@@ -98,14 +98,16 @@
         position: relative; /* no absolute */
     }
 </style>
-<p>Hey hey hey! Let’s test this new Jekyll plugin. There is supposed to be an image between this paragraph and the next one. Ideally we don’t our page jumping around too much once it loads even if images are slow to load.</p>
+<p>Hey hey hey! Let’s test this new Jekyll plugin. There is supposed to be an image between this paragraph and the next one. Ideally we don’t have our page jumping around too much once it loads even if images are slow to load.</p>
 
 <p><div class="image-container" style="width: 100%;"><div class="placeholder-wrapper" data-aspect-ratio="540 / 960" data-custom-width-percentage="100" style="width: 100%;">
 <div class="placeholder" style="width: 100%;"><div class="spinner"></div></div>
 <img src="/photos/out.gif" alt="" class="buffer-image" width="100%">
 </div></div></p>
 
-<p>Now the image is supposed be to above this sentence. Will the slow to load image affect our experience?</p>
+<p>Now the image is supposed be to above this sentence. It is purposely a large (over 20Mb) file of a gif that the host of this site, github pages, takes some time to load (like 10 seconds). The large file helps make sure you don’t miss seeing the grey box with the spinner. For smaller images the loading would be much faster, but regardless the grey box with spinner helps avoid the jumping around of images loading after the overall html.</p>
+
+<p>For image loading speed I have done some experimentation in <a href="https://github.com/mannyray/image-optimize?tab=readme-ov-file#what-about-the-numbers">https://github.com/mannyray/image-optimize?tab=readme-ov-file#what-about-the-numbers</a> as well as in <a href="https://github.com/mannyray/jekyll-image-load-buffer?tab=readme-ov-file#motivation">https://github.com/mannyray/jekyll-image-load-buffer?tab=readme-ov-file#motivation</a>.</p>
 <script>
     const wrappers = document.querySelectorAll('.placeholder-wrapper');
     console.log(wrappers);
