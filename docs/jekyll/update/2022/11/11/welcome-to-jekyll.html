@@ -49,14 +49,102 @@
         <p class="post-meta">Nov 11, 2022</p>
     </header>
     <article class="post-content">
-        <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><body>
+        <style>
+    image-container {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    /* Wrapper preserves aspect ratio */
+    .placeholder-wrapper {
+        position: relative;
+        /* padding-bottom set dynamically by JS */
+        overflow: hidden;
+
+    }
+
+    .placeholder {
+      position: absolute;
+      text-align: center;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #eee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Spinner styles */
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #ccc;
+      border-top-color: #666;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .buffer-image {
+        display: none;
+        height: auto;
+        position: relative; /* no absolute */
+    }
+</style>
 <p>Hey hey hey! Let’s test this new Jekyll plugin. There is supposed to be an image between this paragraph and the next one. Ideally we don’t our page jumping around too much once it loads even if images are slow to load.</p>
 
-<p><img src="/photos/out.gif" alt=""></p>
+<p><div class="image-container" style="width: 100%;"><div class="placeholder-wrapper" data-aspect-ratio="540 / 960" data-custom-width-percentage="100" style="width: 100%;">
+<div class="placeholder" style="width: 100%;"><div class="spinner"></div></div>
+<img src="/photos/out.gif" alt="" class="buffer-image" width="100%">
+</div></div></p>
 
 <p>Now the image is supposed be to above this sentence. Will the slow to load image affect our experience?</p>
-</body></html>
+<script>
+    const wrappers = document.querySelectorAll('.placeholder-wrapper');
+    console.log(wrappers);
+    wrappers.forEach(wrapper => {
+        // Parse aspect ratio expression in data-aspect-ratio attribute
+        const ratioExpr = wrapper.dataset.aspectRatio;
+        let aspectRatio = NaN;
+        try {
+            // Evaluate the aspect ratio (e.g. "1645 / 1077")
+            aspectRatio = Function('"use strict";return (' + ratioExpr + ')')();
+        } catch {
+            aspectRatio = NaN;
+        }
+        
+        let widthPercentage = 100;
+        if (wrapper && wrapper.dataset && wrapper.dataset.customWidthPercentage !== undefined) {
+            widthPercentage = wrapper.dataset.customWidthPercentage;
+        }
+        console.log(widthPercentage);
+        console.log("GGGG")
+        
+
+        if (!isNaN(aspectRatio)) {
+            wrapper.style.paddingBottom = `${aspectRatio * widthPercentage}%`;
+        } else {
+            // fallback to 1:1 if invalid
+            wrapper.style.paddingBottom = `100%`;
+        }
+
+        const img = wrapper.querySelector('.buffer-image');
+        const placeholder = wrapper.querySelector('.placeholder');
+
+        img.onload = function () {
+            placeholder.style.display = 'none';
+            img.style.display = 'block';
+            wrapper.style.paddingBottom = '0';  // Remove padding-bottom, avoid whitespace
+        };
+    });
+</script>
 
     </article>
 </div>
